@@ -5,4 +5,8 @@ export class StageTreeDataProvider implements vscode.TreeDataProvider<any> {
 
     getTreeItem(element: any): vscode.TreeItem {
     }
+
+    getChildren(element?: any): any[] {
+        return [];
+    }
 }
