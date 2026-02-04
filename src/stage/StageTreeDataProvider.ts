@@ -6,13 +6,13 @@ export type StageTreeDataNode = {
     children?: StageTreeDataNode[];
 };
 
-export class StageTreeDataProvider implements vscode.TreeDataProvider<any> {
-    constructor(private readonly roots: any[]) {}
+export class StageTreeDataProvider implements vscode.TreeDataProvider<StageTreeDataNode> {
+    constructor(private readonly roots: StageTreeDataNode[]) {}
 
-    getTreeItem(element: any): vscode.TreeItem {
+    getTreeItem(element: StageTreeDataNode): vscode.TreeItem {
     }
 
-    getChildren(element?: any): any[] {
+    getChildren(element?: StageTreeDataNode): StageTreeDataNode[] {
         return [];
     }
 }
