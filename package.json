@@ -12,6 +12,15 @@
   "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "thousandKnives",
+          "title": "Thousand Knives",
+          "icon": "resources/activityBarIcon.svg"
+        }
+      ]
+    },
     "commands": [
       {
         "command": "thousand-knives.helloWorld",
