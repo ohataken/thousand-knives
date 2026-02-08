@@ -1,6 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import { StageTreeDataProvider } from './stage/StageTreeDataProvider';
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -20,6 +21,29 @@ export function activate(context: vscode.ExtensionContext) {
 	});
 
 	context.subscriptions.push(disposable);
+
+	(() => {
+		const provider = new StageTreeDataProvider([
+			{
+				label: 'Workbench',
+				children: [
+					{ label: 'Sharpen', description: 'Stones & guides' },
+					{ label: 'Polish', description: 'Finish & strop' },
+				],
+			},
+			{
+				label: 'Care',
+				children: [
+					{ label: 'Oil', description: 'Rust prevention' },
+					{ label: 'Storage', description: 'Sheaths & rolls' },
+				],
+			},
+		]);
+
+		const workshopTree = vscode.window.registerTreeDataProvider('thousandKnivesStageView', provider);
+
+		context.subscriptions.push(disposable, workshopTree);
+	})();
 }
 
 // This method is called when your extension is deactivated

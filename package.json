@@ -21,6 +21,14 @@
         }
       ]
     },
+    "views": {
+      "thousandKnives": [
+        {
+          "id": "thousandKnivesStageView",
+          "name": "Workshop"
+        },
+      ]
+    },
     "commands": [
       {
         "command": "thousand-knives.helloWorld",
